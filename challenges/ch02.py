@@ -11,7 +11,7 @@ print("Concatenation")
 print("I have " + str(dogs[1]) + " dogs. My " + dogs[2] + " are " + dogs[3][0] + ", " + dogs[3][2] + ", and " + dogs[3][3] + ". My " + dogs[0] + " is " + dogs[3][1] + " and my " + dogs[4] + " is " + dogs[3][4] + ".")
 
 print("f-string")
-print(f"I have {dogs[1]} dogs. My {dogs[2]} are {dogs[3][0]}, {dogs[3][2]}, and {dogs[3][3]}. My {dogs[0]} is {dogs[3][1]} and my {dogs[4]} is {dogs[3][4]}.")
+print(f"I have {{{dogs[1]}}} dogs. My {dogs[2]} are {dogs[3][0]}, {dogs[3][2]}, and {dogs[3][3]}. My {dogs[0]} is {dogs[3][1]} and my {dogs[4]} is {dogs[3][4]}.")
 
 print("format method")
 print("I have {1} dogs. My {2} are {3[0]}, {3[2]}, and {3[3]}. My {0} is {3[1]} and my {4} is {3[4]}.".format(*dogs))
