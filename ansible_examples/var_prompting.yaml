@@ -1,0 +1,11 @@
+- name: Get a prompt
+  hosts: planetexpress
+  vars_prompt:
+  - name: "yourpassword"  # Variable name to define
+    prompt: "What is your password?"
+    private: no
+    encrypt: "sha512_crypt"
+
+  tasks:
+  - debug:
+      msg: "You chose the password {{ yourpassword }} ?!?!?! Lame..." 

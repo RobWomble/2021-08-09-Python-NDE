@@ -1,0 +1,11 @@
+- name: print out greeting
+  debug:
+    msg: Welcome to the game installer!
+
+- name: install games
+  apt:
+    name:
+    - bastet
+    - cowsay
+  become: True
+

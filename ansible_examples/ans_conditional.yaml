@@ -1,0 +1,27 @@
+- name: When to run a task
+  hosts: planetexpress
+  tasks:
+  - name: print for all
+    debug: 
+      msg: I am printing!
+
+  - name: print for just bender
+    debug:
+      msg: I am the bender
+    when: inventory_hostname == "bender"
+  - name: print for just fry
+    debug:
+      msg: The call me the fry guy
+    when: inventory_hostname == "fry"
+  - name: see what is in result.txt
+    command: cat result.txt
+    register: howdido
+
+  - name: debug what was in result.txt
+    debug:
+      var: howdido
+
+  - name: debug the winner!
+    debug:
+      msg: "You won!"
+    when: howdido.stdout == "SUCCESS" 

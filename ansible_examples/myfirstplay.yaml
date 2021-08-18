@@ -1,0 +1,13 @@
+- name: My First Play
+  hosts: planetexpress
+  tasks:
+  - name: Using ping to check connectivity
+    ping:
+      data: hit the net
+  - name: print hostname to the screen
+    debug:
+      var: ansible_host
+  - name: print hostname to the screen
+    debug:
+      msg: "The IP of our host is {{ ansible_host }}"
+      verbosity: 2 

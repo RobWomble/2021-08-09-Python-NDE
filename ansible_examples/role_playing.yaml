@@ -1,0 +1,10 @@
+- name: using roles
+  hosts: planetexpress
+  roles:
+  - name: game_installer
+    when: getem == True
+  - name: remove_games
+    when: getem == False
+
+  vars:
+    getem: False

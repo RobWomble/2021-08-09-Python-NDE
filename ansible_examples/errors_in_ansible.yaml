@@ -1,0 +1,35 @@
+- name: Playing with error handling
+  hosts: planetexpress
+  tasks:
+  - name: debug a message
+    debug:
+      msg: This should just work everywhere
+
+  - name: My first block of tasks
+    block:
+
+    - name: purposefully fail for fry
+      fail:
+      when: inventory_hostname == "fry"
+  
+    - name: debug a success
+      debug:
+        msg: You are a winner!
+
+    rescue:
+    - name: save fry
+      debug:
+        msg: Have a life-saver kid
+
+    - name: failed rescue attempt
+      fail:
+      when: inventory_hostname == "fry"
+
+    always:
+    - name: shame fry
+      debug:
+        msg: fry is such a loser 
+
+  - name: Another regular task
+    debug:
+      msg: Outside of the block and rescue

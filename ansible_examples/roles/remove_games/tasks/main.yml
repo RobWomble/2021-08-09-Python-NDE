@@ -1,0 +1,12 @@
+- name: print out greeting
+  debug:
+    msg: You are removing games right now!
+
+- name: removing your games
+  apt:
+    name:
+    - bastet
+    - cowsay
+    state: absent
+  become: True
+
