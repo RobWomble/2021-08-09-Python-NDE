@@ -1,0 +1,27 @@
+- name: Install apt packages with a loop
+  hosts: planetexpress
+  tasks:
+  - name: Using loop to install packages
+    apt: 
+      name: "{{ item }}" 
+      state: present
+    become: True
+    loop:
+    - bastet
+    - figlet
+    - cowsay
+    - sl
+
+  - name: Use a loop to debug username and password
+    debug:
+      # item["uname"]   <--- Python Way
+      msg: "Username: {{ item.uname }} , Password: {{ item.passw }}"
+    with_items: "{{ users }}"
+    vars:
+      users:
+      - uname: Sam
+        passw: poodles
+      - uname: Steve
+        passw: breckinridge
+      - uname: Becky
+        passw: toto

@@ -1,0 +1,19 @@
+- name: Show off some filters
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+  - debug:
+      msg: 
+      - "Do you want to go to the {{ place }}?"
+      - Jinja Filters
+      - "Do you want to go to the {{ place | lower }}?"
+      - "Do you want to go to the {{ place | upper }}?"
+      - "Do you want to go to the {{ place | title }}?"
+      - Python Methods
+      - "Yes, let's go to the {{ place.lower() }}?"
+      - "Yes, let's go to the {{ place.upper() }}?"
+      - "Yes, let's go to the {{ place.title() }}?"
+    vars:
+      place: SKATING Rink

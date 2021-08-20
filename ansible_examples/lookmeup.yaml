@@ -1,0 +1,11 @@
+- name: Using lookups
+  hosts: localhost
+  connection: local
+  gather_facts: False  
+  tasks:
+  - name: Debug some ENV Vars
+    debug:
+      msg: 
+      - "MY_NAME = {{ lookup('env', 'MY_NAME') }}"
+      - "DOG = {{ lookup('env', 'DOG') }}"
+

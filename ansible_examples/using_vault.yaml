@@ -1,0 +1,22 @@
+- name: Showing off how to use ansible vault
+  hosts: localhost
+  connection: local
+  #vars_files:
+  #  - hiddenthings.txt
+  vars:
+    mypass: !vault |                                                                                                                                             
+          $ANSIBLE_VAULT;1.1;AES256                                                                                                                          
+          36346237633465303037353264633132306136333036323237396538636238313333383536616639                                                                   
+          6665333937333437666563643564633664663663343864380a643233623130623335393536333166                                                                   
+          61666638353165383036663962666439326333383435626633383132393537663561653865623961                                                                   
+          3837313639626335620a386261333035393263643539336238646665343237623236376238333234
+          3038
+  tasks:
+  - name: print out password
+    debug:
+      msg: 
+      - "My password is {{ mypass }}"
+      #- "Your password is {{ yourpass }}"
+      #- "Other password is {{ otherpass }}"
+
+
